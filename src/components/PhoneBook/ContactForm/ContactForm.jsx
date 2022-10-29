@@ -9,24 +9,14 @@ import {
 } from './ContactForm.styled';
 import { addContact } from 'redux/slice';
 import { useSelector, useDispatch } from 'react-redux';
+import { getContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
-
-  // const addContacts = data => {
-  //   const checkForDublicate = contacts.find(
-  //     contact => contact.name.toLowerCase() === data.name.toLowerCase()
-  //   );
-
-  //   if (checkForDublicate) {
-  //     return toast.info(`${data.name} is already in contacts`);
-  //   }
-  //   setContacts(prevState => [...prevState, data]);
-  // };
+  const contacts = useSelector(getContacts);
 
   const handlerSubmitForm = e => {
     const id = nanoid();
@@ -45,8 +35,6 @@ const ContactForm = () => {
     resetForm();
   };
 
-  //
-
   const handlerChange = e => {
     const { name, value } = e.target;
 
@@ -60,8 +48,6 @@ const ContactForm = () => {
       default:
         break;
     }
-
-    // this.setState({ [name]: value });
   };
 
   const resetForm = () => {

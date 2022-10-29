@@ -1,14 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { removeContact } from 'redux/slice';
+import { getFilter, getContacts } from 'redux/selectors';
 import { StyledList, StyledItem, StyledIconSpan } from './Contacts.styled';
 import { FaRegTrashAlt } from 'react-icons/fa';
 
 export default function Contacts() {
   // достаем из store массив контактов
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(getContacts);
 
   //достаем из сторе значение фильтра
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(getFilter);
 
   //инициализируем доставщика экшОна
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function Contacts() {
     contact.name.toLowerCase().includes(normalizeFilter)
   );
 
+  //рисуем... но это не точно)))
   return (
     <StyledList>
       {filteredContacts.map(({ name, number, id }) => {

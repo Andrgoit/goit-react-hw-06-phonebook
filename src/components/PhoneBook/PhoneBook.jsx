@@ -9,18 +9,7 @@ import Filter from './Filter/Filter';
 
 import { StyledMain, StyledContainer } from './PhoneBook.styled';
 
-// const KEY = 'contacts';
-
 const PhoneBook = () => {
-  // const [contacts, setContacts] = useState(() => {
-  //   return JSON.parse(localStorage.getItem(KEY)) ?? defaultContact;
-  // });
-  // const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   localStorage.setItem(KEY, JSON.stringify(contacts));
-  // }, [contacts]);
-
   return (
     <>
       <ToastContainer
@@ -39,7 +28,6 @@ const PhoneBook = () => {
           <PhoneBookSection title="Phonebook">
             <ContactForm />
           </PhoneBookSection>
-
           <>
             <PhoneBookSection title="Search...">
               <Filter />

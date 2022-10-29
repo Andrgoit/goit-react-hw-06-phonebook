@@ -1,10 +1,11 @@
 import { StyledInput, StyledForm } from './Filter.styled';
 import { setFilter } from 'redux/slice';
 import { useSelector, useDispatch } from 'react-redux';
+import { getFilter } from 'redux/selectors';
 
 const Filter = () => {
   // достаем из store значение фильтра
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(getFilter);
 
   //инициализируем доставщика экшОна
   const dispatch = useDispatch();
@@ -12,9 +13,8 @@ const Filter = () => {
   //обработчик ввода в инпут
   const onChangeHenler = e => {
     const { value } = e.target;
-    console.log(value);
 
-    // диспатчим экшОн с вэлью в сторэ ))
+    // диспатчим экшОн с вэлью в сторэ ;)
     dispatch(setFilter(value));
   };
 
